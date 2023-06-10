@@ -1,4 +1,3 @@
-
 import React, {Component, useState, useEffect} from 'react';
 
 import {
@@ -14,85 +13,48 @@ import {
   TouchableOpacity,
   TextInput,
   FlatList,
-  
 } from 'react-native';
-import {colors, fontsize, images} from './constant';
+import {colors, fontsize, images} from '../constant';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import VideoPlayer from 'react-native-video-player';
+import {useNavigation} from '@react-navigation/native';
+import Taskbar from '../components/Taskbar';
 
 function HomeScreens() {
- const [products, setproducts] = useState([
-   {
-     id: 1,
-     name: 'Giảm đau, hạ sốt',
-     imageUrl:
-       'https://nhathuocviet.vn/data/items/4981/thuoc-giam-dau-ha-sot-partamol-500mg.png',
-   },
-   {
-     id: 2,
-     name: 'Huyết áp, tim mạch',
-     imageUrl:
-       'https://nhathuocviet.vn/data/items/3762/Thuoc-Zekof-80_10-1720.jpg',
-   },
-   {
-     id: 3,
-     name: 'Cơ xương khớp, gút',
+  const [products, setproducts] = useState([
+    {
+      id: 1,
+      name: 'Giảm đau, hạ sốt',
+      imageUrl:
+        'https://nhathuocviet.vn/data/items/4981/thuoc-giam-dau-ha-sot-partamol-500mg.png',
+    },
+    {
+      id: 2,
+      name: 'Huyết áp, tim mạch',
+      imageUrl:
+        'https://nhathuocviet.vn/data/items/3762/Thuoc-Zekof-80_10-1720.jpg',
+    },
+    {
+      id: 3,
+      name: 'Cơ xương khớp, gút',
 
-     imageUrl:
-       'https://nhathuocviet.vn/data/items/1583/e9b0f8578_635406922655430000_HasThumb.jpg',
-   },
-   {
-     id: 4,
-     name: 'Da liễu, dị ứng',
-     imageUrl:
-       'https://nhathuocviet.vn/data/items/4654/thuoc-dieu-tri-mun-trung-ca-nang-acnotin-20.jpg',
-   },
- ]);
+      imageUrl:
+        'https://nhathuocviet.vn/data/items/1583/e9b0f8578_635406922655430000_HasThumb.jpg',
+    },
+    {
+      id: 4,
+      name: 'Da liễu, dị ứng',
+      imageUrl:
+        'https://nhathuocviet.vn/data/items/4654/thuoc-dieu-tri-mun-trung-ca-nang-acnotin-20.jpg',
+    },
+  ]);
+  const navigation = useNavigation();
+
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 10, flexDirection: 'row'}}>
-        <View
-          style={{
-            flex: 15,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Image
-            source={images.menu}
-            style={{
-              width: '50%',
-              height: '30%',
-              alignItems: 'center',
-              tintColor: colors.inactive,
-            }}
-          />
-        </View>
-        <View
-          style={{
-            flex: 55,
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-          }}>
-          <Image
-            source={images.logo_top}
-            style={{
-              width: '50%',
-              height: '50%',
-              alignItems: 'center',
-              tintColor: colors.primary,
-            }}
-          />
-        </View>
-        <View
-          style={{flex: 15, alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={styles.Text}>? Hỗ trợ</Text>
-        </View>
-        <View
-          style={{flex: 15, alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={styles.Text}>VN EN</Text>
-        </View>
+        <Taskbar navigation={navigation}></Taskbar>
       </View>
       <View style={{flex: 90}}>
         <KeyboardAwareScrollView style={{flex: 1}}>
@@ -367,7 +329,7 @@ function HomeScreens() {
                 <View style={{flex: 1, flexDirection: 'row'}}>
                   <View style={{flex: 50, alignItems: 'flex-start'}}>
                     <Text style={{fontSize: fontsize.h6}}>
-                      CHUYỂN KHOA PHỔ BIẾN
+                      CHUYÊN KHOA PHỔ BIẾN
                     </Text>
                   </View>
                   <View style={{flex: 50, alignItems: 'flex-end'}}>
@@ -387,15 +349,24 @@ function HomeScreens() {
                   data={products}
                   renderItem={({item}) => (
                     <View style={{flex: 1, marginLeft: 10}}>
-                      <Image
-                        source={images.header_background}
-                        style={{
-                          width: 120,
-                          height: 80,
-                          alignItems: 'center',
-                        }}
-                      />
-                      <Text>sjdfkjasdkfjkadlsj</Text>
+                      <TouchableOpacity
+                        onPress={() => {
+                          let canGoBack = navigation.canGoBack();
+                          console.log(canGoBack);
+                          navigation.navigate('Specialties', {
+                            navigation: navigation,
+                          });
+                        }}>
+                        <Image
+                          source={images.header_background}
+                          style={{
+                            width: 120,
+                            height: 80,
+                            alignItems: 'center',
+                          }}
+                        />
+                        <Text>Thần kinh</Text>
+                      </TouchableOpacity>
                     </View>
                   )}
                 />
@@ -590,7 +561,7 @@ function HomeScreens() {
               </View>
               <View
                 style={{flex: 70, marginHorizontal: 10, marginVertical: 10}}>
-                <Text style={{textAlign: 'justify',fontSize: fontsize.h6}}>
+                <Text style={{textAlign: 'justify', fontSize: fontsize.h6}}>
                   Trong những năm qua, ngành Y tế Việt Nam đã đạt được những
                   thành tựu đáng khích lệ trên tất cả các lĩnh vực khám và điều
                   trị bệnh. Từ việc đầu tư, ứng dụng các trang, thiết bị, kỹ
@@ -639,8 +610,6 @@ const styles = StyleSheet.create({
   Text: {
     fontSize: fontsize.h6,
   },
-  
 });
-
 
 export default HomeScreens;
