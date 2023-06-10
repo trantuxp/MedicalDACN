@@ -21,11 +21,8 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import VideoPlayer from 'react-native-video-player';
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {createStackNavigator} from '@react-navigation/stack';
 
-function App() {
+function HomeScreens() {
  const [products, setproducts] = useState([
    {
      id: 1,
@@ -53,8 +50,6 @@ function App() {
        'https://nhathuocviet.vn/data/items/4654/thuoc-dieu-tri-mun-trung-ca-nang-acnotin-20.jpg',
    },
  ]);
-const Stack = createStackNavigator();
-
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 10, flexDirection: 'row'}}>
@@ -648,4 +643,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default App;
+export default HomeScreens;
