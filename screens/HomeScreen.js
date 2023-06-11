@@ -351,11 +351,9 @@ function HomeScreens() {
                     <View style={{flex: 1, marginLeft: 10}}>
                       <TouchableOpacity
                         onPress={() => {
-                          let canGoBack = navigation.canGoBack();
-                          console.log(canGoBack);
-                          navigation.navigate('Specialties', {
-                            navigation: navigation,
-                          });
+                          // let canGoBack = navigation.canGoBack();
+                          // console.log(canGoBack);
+                          navigation.navigate('Specialties');
                         }}>
                         <Image
                           source={images.header_background}

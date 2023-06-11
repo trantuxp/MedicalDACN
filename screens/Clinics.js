@@ -202,6 +202,4 @@ export default function Specialties(props) {
   );
 }
 
-const styles = StyleSheet.create({
-  
-});
+const styles = StyleSheet.create({});
