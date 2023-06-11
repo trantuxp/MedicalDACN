@@ -386,12 +386,10 @@ function HomeScreens() {
                     </Text>
                   </View>
                   <View style={{flex: 50, alignItems: 'flex-end'}}>
-                    <TouchableOpacity>
-                      <Text
-                        style={{fontSize: fontsize.h6, color: colors.primary}}>
-                        XEM THÊM
-                      </Text>
-                    </TouchableOpacity>
+                    <Text
+                      style={{fontSize: fontsize.h6, color: colors.primary}}>
+                      XEM THÊM
+                    </Text>
                   </View>
                 </View>
               </View>
@@ -402,15 +400,20 @@ function HomeScreens() {
                   data={products}
                   renderItem={({item}) => (
                     <View style={{flex: 1, marginLeft: 10}}>
-                      <Image
-                        source={images.header_background}
-                        style={{
-                          width: 120,
-                          height: 80,
-                          alignItems: 'center',
-                        }}
-                      />
-                      <Text>sjdfkjasdkfjkadlsj</Text>
+                      <TouchableOpacity
+                        onPress={() => {
+                          navigation.navigate('Clinics');
+                        }}>
+                        <Image
+                          source={images.header_background}
+                          style={{
+                            width: 120,
+                            height: 80,
+                            alignItems: 'center',
+                          }}
+                        />
+                        <Text>sjdfkjasdkfjkadlsj</Text>
+                      </TouchableOpacity>
                     </View>
                   )}
                 />
