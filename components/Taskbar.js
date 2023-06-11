@@ -34,8 +34,7 @@ export default function Taskbar (props) {
         flexDirection: 'row',
         borderBottomColor: "#d1d0d0",
         borderBottomWidth: 3,
-        
-      
+        backgroundColor: colors.white
       }}>
       <View
         style={{

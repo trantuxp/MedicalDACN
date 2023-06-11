@@ -463,20 +463,33 @@ function HomeScreens() {
                           borderWidth: 1,
                           paddingVertical: 10,
                         }}>
-                        <Image
-                          source={images.header_background}
+                        <TouchableOpacity
                           style={{
-                            width: 80,
-                            height: 80,
+                           
                             alignItems: 'center',
-                            borderColor: colors.white,
-                            borderWidth: 0,
-                            borderRadius: 50,
+                            justifyContent: 'center',
+                           
                           }}
-                        />
-                      </View>
+                          onPress={() => {
+                            // let canGoBack = navigation.canGoBack();
+                            // console.log(canGoBack);
+                            navigation.navigate('DoctorInfo');
+                          }}>
+                          <Image
+                            source={images.header_background}
+                            style={{
+                              width: 80,
+                              height: 80,
+                              alignItems: 'center',
+                              borderColor: colors.white,
+                              borderWidth: 0,
+                              borderRadius: 50,
+                            }}
+                          />
 
-                      <Text>sjdfkjasdkfjkadlsj</Text>
+                          <Text>sjdfkjasdkfjkadlsj</Text>
+                        </TouchableOpacity>
+                      </View>
                     </View>
                   )}
                 />
