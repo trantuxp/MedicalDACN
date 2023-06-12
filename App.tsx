@@ -21,6 +21,8 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import VideoPlayer from 'react-native-video-player';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreens from './screens/HomeScreen';
 import Specialties from './screens/Specialties';

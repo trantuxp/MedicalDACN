@@ -22,13 +22,35 @@ import Taskbar from '../components/Taskbar';
 import Markdown from 'react-native-markdown-display';
 import {actions, RichEditor, RichToolbar} from 'react-native-pell-rich-editor';
 import {Replace_html} from './utilities/Replace';
+import SelectDropdown from 'react-native-select-dropdown';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import {formatCurrency} from 'react-native-format-currency';
+import NumberFormat from 'react-number-format';
 
 export default function DoctorInfo(props) {
   const {navigation} = props;
   let str =
-    '<h3>GIỚI THIỆU</h3> <h3>Địa chỉ:  Bệnh viện có nhiều cổng, bệnh nhân đến khám sẽ đến cổng:</h3> <ul> <li>Số 16 - 18 Phủ Doãn, Hoàn Kiếm, Hà Nội</li> </ul> <h3>Thời gian làm việc: Thứ 2 đến thứ 7</h3> <ul> <li>Sáng: 7h00 - 12h00</li> <li>Chiều: 13h30 - 16h30</li> </ul> <p>Bệnh viện Việt Đức là một trong 5 bệnh viện tuyến Trung ương, hạng đặc biệt của Việt Nam. Bệnh viện có lịch sử trên 100 năm, bề dày truyền thống danh tiếng, là cái nôi của ngành ngoại khoa Việt Nam gắn liền với những thành tựu Y học quan trọng của đất nước.</p> <p>Việt Đức là địa chỉ uy tín hàng đầu về ngoại khoa, tiến hành khám bệnh, chữa bệnh và thực hiện các kỹ thuật chụp chiếu, xét nghiệm, thăm dò chức năng cơ bản và chuyên sâu hàng ngày cho người dân.</p> <p>Bệnh viện có đội ngũ y bác sĩ hùng hậu, nhiều người kiêm là cán bộ giảng dạy tại Đại học Y khoa Hà Nội hoặc Khoa Y Dược - Đại học Quốc gia Hà Nội. Trong số họ nhiều người là chuyên gia đầu ngành và bác sĩ giàu kinh nghiệm ở các chuyên khoa khác nhau.</p> <h3>Lưu ý quan trọng</h3> <ul> <li>Bệnh viện có nhiều khu khám bệnh, do đó để thuận tiện và tiết kiệm thời gian khi đi khám, người bệnh nên tìm hiểu kĩ về vị trí khu khám bệnh của mình trước khi đi khám.</li> <li>Bệnh viện Hữu nghị Việt Đức là bệnh viện chuyên về Ngoại khoa, vì vậy, lịch các bác sĩ thường linh động và ưu tiên khám cho các ca cấp cứu.</li> <li>Người bệnh nên chủ động chuẩn bị một số câu hỏi liên quan đến tình trạng của mình trước khi đi khám để hành trình khám bệnh được hiệu quả hơn.</li> </ul> <h3>Chi phí khám</h3> <p>Người bệnh có thể lựa chọn một trong các gói khám sau:</p> <ol> <li>Gói 1:</li> </ol> <ul> <li>Khám Giáo sư, Phó Giáo sư, Tiến sĩ, Bác sĩ Chuyên khoa II - Chi phí 500.000 đồng/lần khám</li> <li>Khám với bác sĩ Trưởng khoa hoặc Phó khoa - Chi phí 500.000 đồng/lần khám</li> </ul> <ol start="2"> <li>Gói 2:</li> </ol> <ul> <li>Khám Thạc sĩ, Bác sĩ Chuyên khoa I - Chi phí: 300.000 đồng/lần khám</li> </ul>';
+    '<h3>Phó Giáo sư, Tiến sĩ, Bác sĩ Cao cấp Nguyễn Duy Hưng</h3> <ul> <li>Phó giáo sư, Tiến sĩ, Bác sĩ cao cấp chuyên khoa Da liễu</li> <li>Bác sĩ từng công tác tại Bệnh viện Da liễu Trung ương</li> <li>Nguyên Trưởng phòng chỉ đạo tuyến tại Bệnh viện Da liễu Trung ương</li> <li>Đạt chứng chỉ Diploma về Da liễu tại Viện da liễu Băng Cốc - Thái Lan</li> <li>Bác sĩ thường xuyên tham gia các Hội thảo, Hội nghị Quốc tế về Da liễu</li> <li>Hội viên của Hội Da liễu Đông Nam Á, Châu Á và Thế giới</li> <li>Giảng viên bộ môn Da liễu tại Đại Học Y Hà Nội</li> <li>Trưởng Bộ môn Da liễu, Trường Đại học Kinh doanh và Công nghệ</li> <li>Tốt nghiệp Đại học Y Hà Nội (1977)</li> <li>Nguyên Tổng Thư ký Hiệp hội Da liễu Việt Nam</li> </ul> <h5>Phó Giáo sư khám và điều trị</h5> <ul> <li>Các bệnh lý về chuyên sâu về da liễu người lớn và trẻ em</li> <li>Trứng cá thông thường thanh thiếu niên, người lớn, trứng cá do thuốc, mỹ phẩm, do bôi corticord, các thể bệnh trứng cá nặng, trứng cá đỏ (rosacea)</li> <li>Điều trị da phục hồi da tổn hại do trứng cá, sẹo trứng cá</li> <li>Các bệnh lý da mặt: viêm da dị ứng, tổn hại da do sử dụng mỹ phẩm, do corticord, lão hóa da</li> <li>Nám da, tàn nhang, sạm da, các bệnh da tăng sắc tố sau viêm, sau trứng cá, do mỹ phẩm</li> <li>Viêm da cơ địa trẻ em và người lớn</li> <li>Viêm da dị ứng, viêm da tiếp xúc, viêm da dầu</li> <li>Tổ đỉa</li> <li>Mày đay</li> <li>Bạch biến</li> <li>Vảy nến</li> <li>Rụng tóc</li> <li>Các bệnh da do nhiễm khuẩn: Viêm nang lông, chốc, nhọt, viêm da mủ</li> <li>Zona, Thủy đậu, Herpes</li> <li>Ghẻ</li> <li>Các bênh da do nấm: Nấm nông da, nấm da đầu, nấm móng tay, móng chân, lang ben, nấm men niêm mạc</li> <li>Viêm mao mạch dị ứng</li> <li>các bệnh da: Có bọng nước, bệnh vẩy phấn hồng, á vẩy nến, liken phẳng, các bệnh da dị ứng thuốc</li> <li>U lành tính của da: Đồi mồi, u cổ tuyến mồ hôi, u mềm lây, u mềm treo, u tuyến bã</li> <li>Một số bệnh lông - tóc - móng</li> <li>Chăm sóc da (skincare)  cho viêm da mặt, trứng cá, liệu trình trị nám, lăn kim, huyết tương giàu tiểu cầu, trị sẹo trứng cá, laser, plasma trị u lành da, nám, đồi mồi</li> <li>Tiêm tái sinh nang tóc</li> </ul>';
   let strReplace2 = Replace_html(str);
-
+  const Ngay = [
+    'T2 - 12/06',
+    'T3',
+    'T4',
+    'T5',
+    'T6',
+    'T7',
+    'T8',
+    
+  ];
+  const myNumber = 123456.789;
+  const renderDropdownIcon = () => (
+    <Icons name="angle-down" size={20} color={colors.primary} />
+  );
+  const formattedValue = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
+  }).format('500000');
+  
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 10, flexDirection: 'row'}}>
@@ -38,7 +60,7 @@ export default function DoctorInfo(props) {
         <KeyboardAwareScrollView
           style={{flex: 1, backgroundColor: colors.white}}>
           <View style={{flex: 1}}>
-            <View style={{height: 450, flexDirection: 'row', paddingTop: 20}}>
+            <View style={{flex: 1, flexDirection: 'row', paddingTop: 20}}>
               <View style={{flex: 40, alignItems: 'center'}}>
                 <Image
                   source={images.header_background}
@@ -49,12 +71,128 @@ export default function DoctorInfo(props) {
                     borderColor: colors.white,
                     borderWidth: 0,
                     borderRadius: 50,
+                    marginTop: 10,
                   }}
                 />
               </View>
               <View style={{flex: 60}}>
-                <Text>Phó giáo sư</Text>
+                <Text
+                  style={{
+                    fontSize: fontsize.h3,
+                    fontWeight: 'bold',
+                    color: colors.black,
+                  }}>
+                  Phó giáo sư
+                </Text>
+                <Text
+                  style={{
+                    fontSize: fontsize.h4,
+                    textAlign: 'justify',
+                  }}>
+                  Nguyên Trưởng phòng chỉ đạo tuyến tại Bệnh viện Da liễu Trung
+                  ương Bác sĩ từng công tác tại Bệnh viện Da liễu Trung ương
+                  Nguyên Tổng Thư ký Hiệp hội Da liễu Việt Nam
+                </Text>
               </View>
+            </View>
+            <View style={{flex: 1, paddingTop: 20}}>
+              <View style={{flex: 1, alignItems: 'center', marginLeft: 10}}>
+                <SelectDropdown
+                  buttonStyle={{
+                    borderBottomWidth: 1,
+                    borderBottomColor: colors.inactive,
+                    height: 40,
+                    width: 150,
+                    alignSelf: 'flex-start',
+                    backgroundColor: colors.white,
+                  }}
+                  color="blue"
+                  renderDropdownIcon={renderDropdownIcon}
+                  defaultButtonText={'T2'}
+                  rowTextStyle={{color: colors.primary}}
+                  buttonTextStyle={{color: colors.primary}}
+                  data={Ngay}
+                  dropdownIconPosition="right"
+                  onSelect={(selectedItem, index) => {}}
+                  buttonTextAfterSelection={(selectedItem, index) => {
+                    return selectedItem;
+                  }}
+                  rowTextForSelection={(item, index) => {
+                    return item;
+                  }}
+                />
+              </View>
+              <View style={{flex: 1, flexDirection: 'row', margin: 10}}>
+                <Icons name="calendar" size={20} color={colors.black} />
+                <Text style={{color: colors.black, marginLeft: 10}}>
+                  LỊCH KHÁM
+                </Text>
+              </View>
+              <View
+                style={{
+                  flex: 1,
+                  borderBottomWidth: 1,
+                  borderBottomColor: 'gray',
+                  paddingBottom: 20,
+                }}>
+                <Text style={{color: colors.black, marginLeft: 10}}>
+                  Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn
+                  thời gian khác!
+                </Text>
+              </View>
+              <View
+                style={{
+                  flex: 1,
+                  borderBottomWidth: 1,
+                  borderBottomColor: 'gray',
+                  paddingBottom: 20,
+                }}>
+                <Text style={{color: colors.black, margin: 10}}>
+                  ĐỊA CHỈ PHÒNG KHÁM
+                </Text>
+                <Text
+                  style={{
+                    color: colors.black,
+                    marginLeft: 10,
+                    marginBottom: 5,
+                  }}>
+                  Bệnh viện Ung bướu Hưng Việt
+                </Text>
+                <Text
+                  style={{
+                    marginLeft: 10,
+                    marginBottom: 5,
+                  }}>
+                  34 Đại cồ việt, Hai Bà Trưng, Hà Nội
+                </Text>
+              </View>
+              <View
+                style={{
+                  flex: 1,
+                  borderBottomWidth: 1,
+                  borderBottomColor: 'gray',
+                  paddingBottom: 20,
+                  flexDirection: 'row',
+                }}>
+                <Text style={{color: colors.black, margin: 10}}>GIÁ KHÁM:</Text>
+                <Text style={{color: colors.gray, margin: 10}}>
+                  {formattedValue}
+                </Text>
+              </View>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                paddingBottom: 20,
+              }}>
+              <RichEditor
+                editorStyle={{}}
+                style={{fontSize: fontsize.h6}}
+                placeholder="Write your cool content here :)"
+                androidHardwareAccelerationDisabled={true}
+                initialHeight={250}
+                initialContentHTML={strReplace2}
+              />
             </View>
           </View>
         </KeyboardAwareScrollView>

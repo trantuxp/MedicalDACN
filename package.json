@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@craftzdog/react-native-buffer": "^6.0.5",
     "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/bottom-tabs": "^6.4.0",
@@ -25,6 +26,7 @@
     "pod-install": "^0.1.38",
     "react": "18.2.0",
     "react-native": "0.71.10",
+    "react-native-base64": "^0.2.1",
     "react-native-combobox": "^1.0.1",
     "react-native-dropdown-select-list": "^2.0.4",
     "react-native-format-currency": "^0.0.3",

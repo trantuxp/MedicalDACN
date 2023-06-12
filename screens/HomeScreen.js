@@ -575,7 +575,7 @@ function HomeScreens() {
               </View>
               <View
                 style={{flex: 70, marginHorizontal: 10, marginVertical: 10}}>
-                <Text style={{textAlign: 'justify', fontSize: fontsize.h6}}>
+                <Text style={{textAlign: 'justify', fontSize: fontsize.h5}}>
                   Trong những năm qua, ngành Y tế Việt Nam đã đạt được những
                   thành tựu đáng khích lệ trên tất cả các lĩnh vực khám và điều
                   trị bệnh. Từ việc đầu tư, ứng dụng các trang, thiết bị, kỹ
