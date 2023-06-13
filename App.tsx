@@ -28,7 +28,7 @@ import HomeScreens from './screens/HomeScreen';
 import Specialties from './screens/Specialties';
 import Clinics from './screens/Clinics';
 import DoctorInfo from './screens/DoctorInfo';
-
+const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 function App() {
   return (
