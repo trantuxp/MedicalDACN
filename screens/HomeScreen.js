@@ -22,10 +22,10 @@ import VideoPlayer from 'react-native-video-player';
 import {useNavigation} from '@react-navigation/native';
 import Taskbar from '../components/Taskbar';
 import axios from 'axios';
-import {ArrayBufferToBase64} from './utilities/Convert_buffer';
+import {ArrayBufferToBase64} from '../utilities/Convert_buffer';
 import YoutubePlayer from 'react-native-youtube-iframe';
 import moment from 'moment';
-import { Convert_to_DD, Convert_to_MM, Convert_to_timestamp, Convert_to_Day } from './utilities/Convert_timestamp';
+import { Convert_to_DD, Convert_to_MM, Convert_to_timestamp, Convert_to_Day } from '../utilities/Convert_timestamp';
 
 function HomeScreens() {
   // const timestamp = 1686675600000 ; // Replace this with your timestamp
@@ -96,6 +96,8 @@ function HomeScreens() {
     setPlaying(prev => !prev);
   }, []);
 
+
+
   const [dataSpecialty, setdataSpecialty] = useState([]);
 
   useEffect(() => {
@@ -116,7 +118,6 @@ function HomeScreens() {
         // always executed
       });
   };
-
   const [dataClinics, setdataClinics] = useState([]);
 
   useEffect(() => {
@@ -140,6 +141,8 @@ function HomeScreens() {
 
   const [dataDoctor, setdataDoctor] = useState([]);
 
+
+  
   useEffect(() => {
     CalGetAllDoctors();
   }, [dataDoctor]);
@@ -158,8 +161,9 @@ function HomeScreens() {
         // always executed
       });
   };
-  const [dataDoctorById, setdataDoctorById] = useState([]);
-  const [dataScheduleOfDoctorById, setdataScheduleOfDoctorById] = useState([]);
+  
+  // const [dataDoctorById, setdataDoctorById] = useState([]);
+  // const [dataScheduleOfDoctorById, setdataScheduleOfDoctorById] = useState([]);
 
   const CalGetDoctorById = async (doctorId,date) => {
     axios
@@ -202,7 +206,41 @@ function HomeScreens() {
     //     // always executed
     //   });
   };
+  // let data = {
+  //   fullName: 'ádas',
+  //   phoneNumber: '0213456789',
+  //   email: 'trantuxp34878@gmail.com',
+  //   address: 'sadfadsfadsf',
+  //   reason: 'sadfasdfasdf',
+  //   date: '1686243600000',
+  //   birthday: '13/06/2001',
+  //   selectedGender: 'M',
+  //   doctorId: '31',
+  //   timeType: 'T1',
+  //   language: '12321431',
+  //   timeString: '9:00 - 10:00',
+  //   doctorName: 'sdfasdfsdf',
+  // };
+  
+  // // useEffect(() => {
+  // //   CalGetAllSpecialty();
+  // // }, [dataSpecialty]);
 
+  // const CalGetSendmail = async data => {
+  //   axios
+  //     .post(CallURL.URL_getSendEmail, {
+  //       data: data,
+  //     })
+
+  //     .then(res => {})
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     })
+  //     .finally(function () {
+  //       // always executed
+  //     });
+  // };
+// CalGetSendmail(data);
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 10, flexDirection: 'row'}}>
@@ -561,7 +599,7 @@ function HomeScreens() {
                   renderItem={({item}) => (
                     <View
                       style={{
-                        height: 150,
+                        height: 150, 
                         width: 200,
                         marginLeft: 10,
                         alignItems: 'center',

@@ -28,6 +28,7 @@ import HomeScreens from './screens/HomeScreen';
 import Specialties from './screens/Specialties';
 import Clinics from './screens/Clinics';
 import DoctorInfo from './screens/DoctorInfo';
+import BookSchedule from './screens/BookSchedule';
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Stack.Screen name="Specialties" component={Specialties} />
         <Stack.Screen name="Clinics" component={Clinics} />
         <Stack.Screen name="DoctorInfo" component={DoctorInfo} />
+        <Stack.Screen name="BookSchedule" component={BookSchedule} />
       </Stack.Navigator>
     </NavigationContainer>
   );

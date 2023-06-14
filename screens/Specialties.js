@@ -20,7 +20,7 @@ import Icons from 'react-native-vector-icons/FontAwesome5';
 import VideoPlayer from 'react-native-video-player';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Taskbar from '../components/Taskbar';
-import { Replace_html } from './utilities/Replace';
+import { Replace_html } from '../utilities/Replace';
 import {actions, RichEditor, RichToolbar} from 'react-native-pell-rich-editor';
 import axios from 'axios';
 

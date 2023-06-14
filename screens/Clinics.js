@@ -22,9 +22,9 @@ import Taskbar from '../components/Taskbar';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Markdown from 'react-native-markdown-display';
 import {actions, RichEditor, RichToolbar} from 'react-native-pell-rich-editor';
-import { Replace_html } from './utilities/Replace';
+import { Replace_html } from '../utilities/Replace';
 import axios from 'axios';
-import { ArrayBufferToBase64 } from './utilities/Convert_buffer';
+import { ArrayBufferToBase64 } from '../utilities/Convert_buffer';
 
 export default function Clinics(props) {
   const {navigation} = props;

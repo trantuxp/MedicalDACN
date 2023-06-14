@@ -6,4 +6,5 @@ export default {
   URL_getAllClinic: HOST + '/get-all-clinic',
   URL_getProfileDoctorById: HOST + '/get-profile-doctor-by-id',
   URL_getScheduleDoctorByDate: HOST + '/get-schedule-doctor-by-date',
+  URL_getSendEmail: HOST + '/patient-book-appointment',
 };

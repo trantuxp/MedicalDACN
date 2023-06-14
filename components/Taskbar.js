@@ -32,9 +32,9 @@ export default function Taskbar (props) {
       style={{
         flex: 1,
         flexDirection: 'row',
-        borderBottomColor: "#d1d0d0",
+        borderBottomColor: '#d1d0d0',
         borderBottomWidth: 3,
-        backgroundColor: colors.white
+        backgroundColor: colors.white,
       }}>
       <View
         style={{
@@ -78,15 +78,20 @@ export default function Taskbar (props) {
           alignItems: 'flex-start',
           justifyContent: 'center',
         }}>
-        <Image
-          source={images.logo_top}
-          style={{
-            width: '60%',
-            height: '50%',
-            alignItems: 'center',
-            tintColor: colors.primary,
-          }}
-        />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('HomeScreens');
+          }}>
+          <Image
+            source={images.logo_top}
+            style={{
+              width: 120,
+              height: 40,
+              alignItems: 'center',
+              tintColor: colors.primary,
+            }}
+          />
+        </TouchableOpacity>
       </View>
       <View style={{flex: 20, alignItems: 'center', justifyContent: 'center'}}>
         <Text style={styles.Text}>? Hỗ trợ</Text>
