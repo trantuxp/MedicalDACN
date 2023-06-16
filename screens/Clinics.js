@@ -33,26 +33,26 @@ export default function Clinics(props) {
 
   let strClinicReplace = Replace_html(descriptionHTML);
  
-  const [data, setdata] = useState([]);
+  // const [data, setdata] = useState([]);
 
-  useEffect(() => {
-    calGetUrl();
-  }, [data]);
+  // useEffect(() => {
+  //   calGetUrl();
+  // }, [data]);
   
-  const calGetUrl = async () => {
-    axios
-      .get('http://192.168.2.14:8080/api/get-all-doctors')
+  // const calGetUrl = async () => {
+  //   axios
+  //     .get('http://192.168.2.14:8080/api/get-all-doctors')
 
-      .then(res => {
-        setdata(res.data.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
-  };
+  //     .then(res => {
+  //       setdata(res.data.data);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     })
+  //     .finally(function () {
+  //       // always executed
+  //     });
+  // };
 
   return (
     <View style={{flex: 1}}>

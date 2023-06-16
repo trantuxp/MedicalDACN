@@ -707,7 +707,7 @@ function HomeScreens() {
               </View>
             </View>
           </View>
-          <View style={{height: 220}}>
+          {/* <View style={{height: 220}}>
             <View style={{flex: 1, justifyContent: 'center'}}>
               <View
                 style={{
@@ -752,7 +752,7 @@ function HomeScreens() {
                 />
               </View>
             </View>
-          </View>
+          </View> */}
           <View style={{height: 350, backgroundColor: colors.white}}>
             <View style={{flex: 1}}>
               <View

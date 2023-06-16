@@ -1,4 +1,4 @@
-const HOST = 'http://192.168.2.14:8080/api';
+const HOST = 'http://10.50.20.58:8080/api';
 export default {
   URL_getAllSpecialty: HOST + '/get-all-specialty',
   URL_getDetailSpecialtyById: HOST + '/get-detail-specialty-by-id',

@@ -87,13 +87,13 @@ export default function DoctorInfo(props) {
       .get(CallURL.URL_getScheduleDoctorByDate, {
         params: {
           doctorId: doctorId,
-          date: '1686675600000',
+          date: date,
         },
       })
 
       .then(res => {
         setdataScheduleOfDoctorById(res.data.data);
-        console.log(res.data.data);
+        // console.log(res.data.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -166,17 +166,17 @@ export default function DoctorInfo(props) {
                   }}
                   color="blue"
                   renderDropdownIcon={renderDropdownIcon}
-                  defaultButtonText={''}
+                  defaultButtonText={' '}
                   rowTextStyle={{color: colors.primary}}
                   buttonTextStyle={{color: colors.primary}}
                   data={days}
                   dropdownIconPosition="right"
                   onSelect={(selectedItem, index) => {
                     console.log(selectedItem);
-                    setdate(selectedItem);
+                    setdate(Convert_to_timestamp(selectedItem));
                     CalGetScheduleDoctorByDate(
                       dataDoctorById.id,
-                      Convert_to_timestamp(selectedItem),
+                      Convert_to_timestamp((selectedItem)),
                     );
                     
                   }}

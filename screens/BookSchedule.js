@@ -87,13 +87,17 @@ export default function BookSchedule(props) {
                     fontSize: fontsize.h4,
                     textAlign: 'justify',
                     marginRight: 5,
-                  }}>{time} - {date}</Text>
+                  }}>
+                  {time} - {date}
+                </Text>
                 <Text
                   style={{
                     fontSize: fontsize.h4,
                     textAlign: 'justify',
                     marginRight: 5,
-                  }}>Miễn Phí Đặt lịch</Text>
+                  }}>
+                  Miễn Phí Đặt lịch
+                </Text>
               </View>
             </View>
             <View style={{flex: 1, flexDirection: 'row', paddingTop: 20}}>
@@ -152,6 +156,40 @@ export default function BookSchedule(props) {
                   style={{borderWidth: 1, borderRadius: 10, width: '90%'}}
                 />
               </View>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                paddingTop: 20,
+                marginLeft: 25,
+              }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('HomeScreens');
+                  }}
+                  title="SEND IT"
+                  style={{
+                    width: '50%',
+                    alignSelf: 'center',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: colors.primary,
+                    borderRadius: 40,
+                    borderColor: colors.primary,
+                    borderWidth: 1,
+                    height: 40,
+                    borderRadius: 40,
+                    padding: 10,
+                  }}>
+                  <Text
+                    style={{
+                      color: 'white',
+                      fontSize: fontsize.h5,
+                    }}>
+                    Xác nhận
+                  </Text>
+                </TouchableOpacity>
             </View>
           </View>
         </KeyboardAwareScrollView>
